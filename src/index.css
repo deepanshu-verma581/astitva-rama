@@ -6,6 +6,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   --cream: #fffdf7;
+  --color-card: #fbf8f0;
   --bg: #f5f0e5;
   --soft: #efe8d8;
   --olive: #68734b;
@@ -15,9 +16,21 @@
   --border: #d8d0bd;
 }
 
-* { box-sizing: border-box; }
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 html { scroll-behavior: smooth; scroll-padding-top: 82px; }
-body { margin: 0; min-width: 320px; background: var(--bg); color: var(--text); }
+body { min-width: 320px; overflow-x: hidden; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.7; }
 body, button, input, textarea { font-family: Arial, sans-serif; }
 h1, h2, h3, .brand { font-family: Georgia, 'Times New Roman', serif; }
 a { color: inherit; }
