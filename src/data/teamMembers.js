@@ -6,14 +6,41 @@ export const teamMembers = [
     name: 'Rama Suryavanshi',
     image: ramaPhoto,
     imageAlt: 'Portrait of Rama Suryavanshi',
-    summary: '',
-    details: 'Additional profile details have not been provided yet.',
+    designation: 'Counselling Psychologist (Founder)',
+    summary:
+      'I am a counselling psychologist with a deep interest in understanding human behaviour, emotions, relationships, and the experiences that shape who we are. I believe every individual has a unique story and deserves a space where they feel heard, understood, and accepted.',
+    details:
+      'I hold undergraduate and postgraduate qualifications in clinical psychology, complemented by practical fieldwork and multiple internship experiences in the mental health field. With over one year of professional experience, I have gained valuable exposure to psychological assessment, client interactions, counselling practices, and diverse emotional and behavioural concerns. I strive to bring together psychological knowledge, practical understanding, and empathy in my work.',
+    areasHeading: 'My Areas of Expertise',
+    areas: [
+      'Individual Counselling',
+      'Relationship Counselling',
+      'Family Counselling',
+      'Life Transitions',
+      'Self-Esteem & Personal Growth',
+      'Emotional Well-being',
+    ],
+     Therapeutic: 'Therapeutic Modalities and Approaches',
+    modalities:
+ ['Cognitive Behavioural Therapy',
+ 'Dialectical Behaviour Therapy',
+'Acceptance and Commitment Therapy',
+'Emotion-Focused Approaches',
+'Mindfulness-Based Approaches',
+'Solution-Focused Approach',
+'Family and Couple Therapy',
+],
+    approachHeading: 'My Approach',
+    approach:
+      'My approach is rooted in empathy, active listening, and understanding without judgment. I believe meaningful support begins with understanding each individual’s unique experiences. I aim to create a safe and comfortable environment where people can openly explore their concerns, understand their emotions, and develop healthier ways of navigating life’s challenges.',
+    closing:
+      'I believe healing is not about changing who you are but about understanding yourself, recognizing your strengths, and embracing personal growth. My intention is simple: to help individuals feel heard, understood, and empowered in their journey towards emotional well-being.',
   },
   {
     name: 'Vanshika Madan',
     image: vanshikaPhoto,
     imageAlt: 'Portrait of Vanshika Madan',
-    designation: 'Psychology Professional',
+    designation: ' Counselling Psychologist (Co-Founder)',
     summary:
       'Postgraduate degree in Clinical Psychology and undergraduate degree in Applied Psychology (Honours), with one year of professional experience in psychology and mental well-being.',
     details:
