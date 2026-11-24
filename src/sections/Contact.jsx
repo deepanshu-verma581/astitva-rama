@@ -7,7 +7,7 @@ export default function Contact() {
     name: '',
     email: '',
     phone: '',
-    subject: '',
+    age: '',
     message: '',
   })
   const [errors, setErrors] = useState({})
@@ -21,7 +21,12 @@ export default function Contact() {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
       nextErrors.email = 'Please enter a valid email address.'
     }
-    if (!values.subject.trim()) nextErrors.subject = 'Please enter a subject.'
+    if (!values.phone.trim()) nextErrors.phone = 'Please enter your phone number.'
+    if (!values.age.trim()) {
+      nextErrors.age = 'Please enter your age.'
+    } else if (!Number.isInteger(Number(values.age)) || Number(values.age) < 1 || Number(values.age) > 120) {
+      nextErrors.age = 'Enter an age between 1 and 120.'
+    }
     if (!values.message.trim()) nextErrors.message = 'Please enter a message.'
     setErrors(nextErrors)
     if (Object.keys(nextErrors).length > 0) return
@@ -47,7 +52,7 @@ export default function Contact() {
       if (!response.ok || result.status !== 'success') {
         throw new Error(result.message || 'The submission could not be saved.')
       }
-      setValues({ name: '', email: '', phone: '', subject: '', message: '' })
+      setValues({ name: '', email: '', phone: '', age: '', message: '' })
       setStatus({
         type: 'success',
         message: 'Thank you. Your information has been submitted successfully.',
@@ -91,29 +96,30 @@ export default function Contact() {
             <div className="form-row">
               <label>
                 Full Name
-                <input name="name" value={values.name} onChange={update} />
+                <input name="name" autoComplete="name" required value={values.name} onChange={update} />
                 {errors.name && <small>{errors.name}</small>}
               </label>
               <label>
                 Email Address
-                <input name="email" type="email" value={values.email} onChange={update} />
+                <input name="email" type="email" autoComplete="email" required value={values.email} onChange={update} />
                 {errors.email && <small>{errors.email}</small>}
               </label>
             </div>
             <div className="form-row">
               <label>
-                Phone Number
-                <input name="phone" value={values.phone} onChange={update} />
+                Phone Number <span aria-hidden="true">*</span>
+                <input name="phone" type="tel" autoComplete="tel" required value={values.phone} onChange={update} />
+                {errors.phone && <small>{errors.phone}</small>}
               </label>
               <label>
-                Subject
-                <input name="subject" value={values.subject} onChange={update} />
-                {errors.subject && <small>{errors.subject}</small>}
+                Age <span aria-hidden="true">*</span>
+                <input name="age" type="number" min="1" max="120" step="1" required value={values.age} onChange={update} />
+                {errors.age && <small>{errors.age}</small>}
               </label>
             </div>
             <label>
               Message
-              <textarea name="message" rows="5" value={values.message} onChange={update} />
+              <textarea name="message" rows="5" required value={values.message} onChange={update} />
               {errors.message && <small>{errors.message}</small>}
             </label>
             <button className="button button-primary" type="submit" disabled={submitting}>

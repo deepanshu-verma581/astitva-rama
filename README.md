@@ -20,15 +20,19 @@ function doPost(e) {
   try {
     const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     const data = JSON.parse(e.postData.contents);
-    if (!data.name || !data.email || !data.subject || !data.message) {
+    if (!data.name?.trim() || !data.email?.trim() || !data.phone?.trim() || !data.age || !data.message?.trim()) {
       return jsonResponse({ status: 'error', message: 'Required fields are missing.' });
+    }
+    const age = Number(data.age);
+    if (!Number.isInteger(age) || age < 1 || age > 120) {
+      return jsonResponse({ status: 'error', message: 'Age must be a whole number from 1 to 120.' });
     }
     sheet.appendRow([
       data.timestamp || new Date(),
       data.name,
       data.email,
       data.phone || '',
-      data.subject,
+      age,
       data.message,
     ]);
     return jsonResponse({ status: 'success' });
@@ -46,7 +50,7 @@ function jsonResponse(payload) {
 function setup() {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
   sheet.clear();
-  sheet.appendRow(['Timestamp', 'Full Name', 'Email', 'Phone', 'Subject', 'Message']);
+  sheet.appendRow(['Timestamp', 'Full Name', 'Email', 'Phone', 'Age', 'Message']);
 }
 ```
 
