@@ -30,7 +30,7 @@ body,
 }
 
 html { scroll-behavior: smooth; scroll-padding-top: 82px; }
-body { min-width: 320px; overflow-x: hidden; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.7; }
+body { min-width: 320px; overflow-x: hidden; background: var(--bg); color: var(--text); font-size: 18px; line-height: 1.7; }
 body, button, input, textarea { font-family: Arial, sans-serif; }
 h1, h2, h3, .brand { font-family: Georgia, 'Times New Roman', serif; }
 a { color: inherit; }
