@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
-import { HeartHandshake, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import Button from './Button'
 import { navItems } from '../data/siteData'
+import astitvaLogo from '../assets/astitva.jpeg'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -24,9 +25,9 @@ export default function Navbar() {
   return (
     <header className="navbar">
       <div className="nav-inner">
-        <a className="brand" href="#home" aria-label="ASTIVA home">
-          <span className="brand-mark"><HeartHandshake size={20} strokeWidth={1.6} /></span>
-          <span>ASTIVA</span>
+        <a className="brand" href="#home" aria-label="Astitva home">
+          <img className="brand-logo" src={astitvaLogo} alt="" />
+          <span>Astitva</span>
         </a>
         <button
           className="menu-button"

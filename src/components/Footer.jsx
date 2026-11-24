@@ -1,5 +1,5 @@
-import { HeartHandshake } from 'lucide-react'
 import { navItems, serviceItems } from '../data/siteData'
+import astitvaLogo from '../assets/astitva.jpeg'
 
 export default function Footer() {
   return (
@@ -7,8 +7,8 @@ export default function Footer() {
       <div className="footer-grid">
         <div>
           <div className="brand footer-brand">
-            <span className="brand-mark"><HeartHandshake size={20} /></span>
-            <span>ASTIVA</span>
+            <img className="brand-logo" src={astitvaLogo} alt="" />
+            <span>Astitva</span>
           </div>
           <p>Compassionate counselling and psychological support for every step of your journey.</p>
         </div>
@@ -33,7 +33,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="copyright">
-        © {new Date().getFullYear()} ASTIVA – Counselling &amp; Wellness Centre. All rights reserved.
+        © {new Date().getFullYear()} Astitva – Counselling &amp; Wellness Centre. All rights reserved.
       </div>
     </footer>
   )

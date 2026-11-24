@@ -1,4 +1,4 @@
-# ASTIVA – Counselling & Wellness Centre
+# Astitva – Counselling & Wellness Centre
 
 A responsive React and Vite website using a calm cream, beige and olive-green visual system. All image areas are reusable placeholders.
 

@@ -1,24 +1,36 @@
-import ImagePlaceholder from './ImagePlaceholder'
 import { ChevronRight } from 'lucide-react'
 
-export default function TeamCard({ expanded, onToggle }) {
+export default function TeamCard({ member, expanded, onToggle }) {
   return (
     <article className="team-card">
-      <ImagePlaceholder className="team-image" aspectRatio="4 / 3" />
-      <h3>Team Member Name</h3>
-      <span>Clinical Psychologist</span>
-      <p>
-        <strong>Professional Qualifications</strong>
-        <br />
-        Short biography placeholder. Add a concise, accurate professional introduction here.
-      </p>
+      <img className="team-image" src={member.image} alt={member.imageAlt} />
+      <h3>{member.name}</h3>
+      {member.designation && <span>{member.designation}</span>}
+      {member.summary && <p>{member.summary}</p>}
       {expanded && (
-        <p className="team-card-extra">
-          Add the team member&apos;s areas of interest, professional approach and relevant
-          experience here once verified information is available.
-        </p>
+        <div className="team-card-extra">
+          <p>{member.details}</p>
+          {member.areas && (
+            <>
+              <h4>Areas of Expertise</h4>
+              <ul>{member.areas.map(area => <li key={area}>{area}</li>)}</ul>
+            </>
+          )}
+          {member.modalities && (
+            <>
+              <h4>Therapeutic Modalities and Approaches</h4>
+              <ul>{member.modalities.map(modality => <li key={modality}>{modality}</li>)}</ul>
+            </>
+          )}
+          {member.approach && <p>{member.approach}</p>}
+        </div>
       )}
-      <button className="text-button team-toggle" onClick={onToggle} type="button">
+      <button
+        className="text-button team-toggle"
+        onClick={onToggle}
+        type="button"
+        aria-expanded={expanded}
+      >
         {expanded ? 'Show Less' : 'Show More'} <ChevronRight size={15} />
       </button>
     </article>
