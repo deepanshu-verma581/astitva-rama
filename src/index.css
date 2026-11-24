@@ -1,0 +1,24 @@
+:root {
+  font-family: Arial, sans-serif;
+  color: #3d382c;
+  background: #f5f0e5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --cream: #fffdf7;
+  --bg: #f5f0e5;
+  --soft: #efe8d8;
+  --olive: #68734b;
+  --dark-olive: #485238;
+  --text: #3d382c;
+  --muted: #77715f;
+  --border: #d8d0bd;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 82px; }
+body { margin: 0; min-width: 320px; background: var(--bg); color: var(--text); }
+body, button, input, textarea { font-family: Arial, sans-serif; }
+h1, h2, h3, .brand { font-family: Georgia, 'Times New Roman', serif; }
+a { color: inherit; }
+button, input, textarea { font-size: inherit; }
