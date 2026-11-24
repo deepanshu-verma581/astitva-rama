@@ -27,11 +27,11 @@
 
 .section-pad { width: 100%; max-width: 1440px; margin: auto; padding-left: clamp(20px, 4vw, 64px); padding-right: clamp(20px, 4vw, 64px); }
 .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; padding-top: 28px; padding-bottom: 72px; }
-.intro-card { min-height: 205px; display: grid; grid-template-columns: 42% 58%; gap: 18px; align-items: center; padding: 18px; border: 1px solid var(--border); border-radius: 16px; background: var(--cream); }
-.intro-image { height: 155px; }
+.intro-card { min-height: 205px; display: grid; grid-template-columns: minmax(180px, 42%) minmax(0, 58%); gap: 20px; align-items: center; padding: 20px; border: 1px solid var(--border); border-radius: 16px; background: var(--cream); }
+.intro-image { width: 100%; height: 155px; }
 .mini-brand { display: block; font-family: Georgia, serif; font-size: 26px; margin-bottom: 8px; }
 .intro-card p { margin: 0; font-size: 14px; line-height: 1.7; color: var(--muted); }
-.why-card { padding: 22px 28px; border: 1px solid var(--border); border-radius: 16px; background: var(--cream); }
+.why-card { min-height: 205px; padding: 24px 28px; border: 1px solid var(--border); border-radius: 16px; background: var(--cream); }
 .section-heading h2 { margin: 0; font-size: clamp(34px, 3vw, 42px); line-height: 1.12; }
 .section-heading.center { text-align: center; }
 .why-card .section-heading h2 { font-size: 27px; }
@@ -45,17 +45,17 @@
 .section { padding: clamp(64px, 7vw, 96px) clamp(20px, 4vw, 64px); }
 .section-tinted { background: rgba(239,232,216,.58); }
 .section-container { width: 100%; max-width: 1440px; margin: auto; }
-.about-grid { display: grid; grid-template-columns: 54% 46%; gap: 28px; margin-top: 28px; }
-.about-copy { border: 1px solid var(--border); border-radius: 16px; background: var(--cream); padding: 34px; }
+.about-grid { display: block; margin-top: 28px; }
+.about-copy { width: 100%; border: 1px solid var(--border); border-radius: 16px; background: var(--cream); padding: 34px 40px; }
 .about-copy h3 { margin: 0 0 10px; font-size: 23px; }
 .about-copy p { margin: 0 0 26px; line-height: 1.75; font-size: 16px; color: var(--muted); }
 .about-visual { position: relative; }
 .about-image { height: 100%; min-height: 330px; }
 .story-caption { position: absolute; right: 12px; bottom: 12px; padding: 10px 14px; border-radius: 8px; background: var(--cream); font-family: Georgia, serif; font-size: 12px; }
-.values-panel { margin-top: 20px; padding: 18px 24px; border: 1px solid var(--border); border-radius: 14px; background: var(--cream); }
-.values-panel h3 { font-size: 20px; }
-.values-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
-.value-item { min-height: 80px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; border: 1px solid #e6dfce; border-radius: 10px; color: var(--olive); }
+.values-panel { width: 100%; margin-top: 22px; padding: 24px 28px 28px; border: 1px solid var(--border); border-radius: 16px; background: var(--cream); }
+.values-panel h3 { margin: 0 0 16px; font-size: 22px; }
+.values-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.value-item { min-height: 110px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 9px; border: 1px solid #e6dfce; border-radius: 10px; color: var(--olive); }
 .value-item span { color: var(--text); font-size: 12px; }
 
 .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 34px; }
@@ -138,6 +138,8 @@
   .hero h1 { font-size: clamp(38px, 6vw, 48px); }
   .hero-image { min-height: 520px; }
   .intro-grid, .about-grid, .mission-grid, .contact-grid { grid-template-columns: 1fr; }
+  .intro-grid { gap: 20px; }
+  .intro-card { min-height: 0; }
   .services-grid, .team-grid { grid-template-columns: repeat(2,1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
@@ -148,6 +150,15 @@
   .team-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+@media (min-width: 601px) and (max-width: 767px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-copy { max-width: none; justify-self: stretch; padding: 48px 32px 36px; }
+  .hero-image { height: 360px; min-height: 360px; border-left: 0; border-top: 1px solid var(--border); }
+  .intro-card { grid-template-columns: 42% 58%; }
+  .intro-grid { padding-left: 20px; padding-right: 20px; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 600px) {
   .navbar { height: 68px; }
   .nav-links { top: 68px; }
@@ -156,12 +167,18 @@
   .hero-copy { padding: 42px 20px 34px; }
   .hero h1 { font-size: 40px; }
   .hero-image { width: 100%; height: 280px; min-height: 280px; margin: 0; border-left: 0; border-top: 1px solid var(--border); }
-  .intro-grid { grid-template-columns: 1fr; padding: 16px 16px 48px; }
-  .intro-card { grid-template-columns: 42% 58%; }
+  .intro-grid { grid-template-columns: 1fr; gap: 16px; padding: 16px 16px 48px; }
+  .intro-card { grid-template-columns: 1fr; gap: 16px; padding: 16px; }
+  .intro-image { height: 190px; }
+  .intro-card p { font-size: 15px; }
+  .mini-brand { margin-bottom: 6px; }
+  .why-card { min-height: 0; padding: 22px 20px; }
+  .check-list li { padding-top: 10px; padding-bottom: 10px; }
   .section { padding: 58px 16px; }
   .about-copy { padding: 24px; }
-  .about-image { min-height: 280px; }
-  .values-grid { grid-template-columns: 1fr 1fr; }
+  .values-panel { padding: 20px 16px 16px; }
+  .values-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .value-item { min-height: 96px; }
   .mission-card, .mission-card.vision { grid-template-columns: 1fr; }
   .mission-icon { width: 70px; height: 70px; }
   .mission-image { height: 150px; }
