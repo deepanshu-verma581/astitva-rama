@@ -33,7 +33,7 @@ export default function TeamCard({ member }) {
 
   return (
     <article className="team-card">
-      <img className="team-image" src={member.image} alt={member.imageAlt} />
+      <img className="team-image" src={member.image} alt={member.imageAlt} width={member.imageWidth} height={member.imageHeight} loading="lazy" decoding="async" />
       <h3>{member.name}</h3>
       {member.designation && <span>{member.designation}</span>}
       {member.summary && <p>{member.summary}</p>}
@@ -63,7 +63,7 @@ export default function TeamCard({ member }) {
             ×
           </button>
           <div className="team-profile-heading">
-            <img src={member.image} alt={member.imageAlt} />
+            <img src={member.image} alt={member.imageAlt} width={member.imageWidth} height={member.imageHeight} decoding="async" />
             <div>
               <h2 id={`profile-${member.name.replaceAll(' ', '-')}`}>{member.name}</h2>
               {member.designation && <span>{member.designation}</span>}

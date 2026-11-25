@@ -56,8 +56,11 @@ function jsonResponse(payload) {
 
 function setup() {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  sheet.clear();
-  sheet.appendRow(['Timestamp', 'Date', 'Day', 'Time', 'Full Name', 'Email', 'Phone', 'Age', 'Message']);
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow(['Timestamp', 'Date', 'Day', 'Time', 'Full Name', 'Email', 'Phone', 'Age', 'Message']);
+    return;
+  }
+  throw new Error('This sheet already has data. Review its headers manually; setup did not change existing rows.');
 }
 ```
 
@@ -75,3 +78,7 @@ function setup() {
 The React form uses `text/plain` POST data to avoid a Google Apps Script CORS preflight. Message is optional and is saved as a blank cell when omitted. The URL is public configuration only; never place a Google account password or private API key in the frontend.
 
 The contact form sends Date, Day, and Time in India Standard Time as private submission fields; they are saved to the sheet and are not shown on the page. If the Apps Script is already deployed, update its `doPost` code with the version above and deploy a new version. Add the `Date`, `Day`, and `Time` headers after `Timestamp` in the sheet so the columns match.
+
+## Search engine setup
+
+See [SEO.md](SEO.md) for the technical SEO audit, keyword map, domain configuration, sitemap and robots behavior, Search Console steps, and remaining business/privacy details that need confirmation. Set `VITE_SITE_URL` to the final HTTPS production origin before building the site. The example value in `.env.example` is reserved and is ignored when generating canonical URLs and sitemaps.

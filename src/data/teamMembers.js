@@ -6,6 +6,8 @@ export const teamMembers = [
     name: 'Rama Suryavanshi',
     image: ramaPhoto,
     imageAlt: 'Portrait of Rama Suryavanshi',
+    imageWidth: 1145,
+    imageHeight: 1374,
     designation: 'Counselling Psychologist (Founder)',
     summary:
       'I am a counselling psychologist with a deep interest in understanding human behaviour, emotions, relationships, and the experiences that shape who we are. I believe every individual has a unique story and deserves a space where they feel heard, understood, and accepted.',
@@ -40,6 +42,8 @@ export const teamMembers = [
     name: 'Vanshika Madan',
     image: vanshikaPhoto,
     imageAlt: 'Portrait of Vanshika Madan',
+    imageWidth: 1193,
+    imageHeight: 1319,
     designation: ' Counselling Psychologist (Co-Founder)',
     summary:
       'Postgraduate degree in Clinical Psychology and undergraduate degree in Applied Psychology (Honours), with one year of professional experience in psychology and mental well-being.',

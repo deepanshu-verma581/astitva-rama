@@ -1,6 +1,6 @@
 import { HeartHandshake, ShieldCheck, UserRound, Brain } from 'lucide-react'
 import SectionHeading from '../components/SectionHeading'
-import astitvaLogo from '../assets/astitva.jpeg'
+import astitvaLogo from '../assets/astitva-emblem.jpeg'
 
 export default function About() {
   const values = [
@@ -17,7 +17,7 @@ export default function About() {
         <div className="about-grid">
           <div className="about-copy">
             <div className="about-identity">
-              <img src={astitvaLogo} alt="Astitva Counselling & Wellness Centre logo" />
+              <img src={astitvaLogo} alt="Astitva Counselling and Wellness Centre emblem" width="400" height="400" loading="lazy" decoding="async" />
               <div>
                 <h3>Astitva</h3>
                 <p>

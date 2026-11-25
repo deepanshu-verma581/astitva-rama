@@ -1,30 +1,31 @@
 import Button from '../components/Button'
 import SectionHeading from '../components/SectionHeading'
-import therapyRoom from '../assets/hero.png'
-import astitva from '../assets/astitva.jpeg'
+import therapyRoom from '../assets/hero-counselling-room.jpg'
+import therapyRoomMobile from '../assets/hero-counselling-room-mobile.jpg'
+import astitva from '../assets/astitva-emblem.jpeg'
 
 export default function Hero() {
   return (
     <main>
       <section className="hero" id="home">
         <div className="hero-copy">
-          <span className="eyebrow">Counselling &amp; Wellness Centre</span>
-          <h1>A Safe Space to Discover,<br />Heal &amp; Grow</h1>
+          <span className="eyebrow">Online Counselling &amp; Wellness Centre in India</span>
+          <h1>Online Counselling to Discover, Heal &amp; Grow</h1>
           <p>
-            Welcome to Astitva, a space to understand and accept who you are, navigate
-            life&apos;s challenges, and grow through compassionate psychological support.
+            Welcome to Astitva, a supportive space to understand yourself, navigate
+            life&apos;s challenges, and grow through compassionate online counselling.
           </p>
           <div className="hero-actions">
             <Button href="#contact">Book a Consultation</Button>
             <Button href="#services" variant="secondary">Explore Our Services</Button>
           </div>
         </div>
-        <img className="hero-image" src={therapyRoom} alt="Warm, welcoming counselling room" />
+        <img className="hero-image" src={therapyRoom} srcSet={`${therapyRoomMobile} 480w, ${therapyRoom} 952w`} sizes="(max-width: 767px) 100vw, (max-width: 900px) 46vw, 54vw" alt="A calm, welcoming space for counselling and reflection" width="952" height="716" fetchPriority="high" decoding="async" />
       </section>
 
       <section className="intro-grid section-pad">
         <div className="intro-card">
-          <img className="intro-image" src={astitva} alt="Astitva Counselling & Wellness Centre logo" />
+          <img className="intro-image" src={astitva} alt="Astitva Counselling and Wellness Centre emblem" width="400" height="400" loading="lazy" decoding="async" />
           <div>
             <span className="mini-brand">Astitva</span>
             <p>

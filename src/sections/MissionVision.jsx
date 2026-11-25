@@ -1,6 +1,6 @@
 import { HeartHandshake } from 'lucide-react'
 import SectionHeading from '../components/SectionHeading'
-import visionIllustration from '../assets/our-vision.png'
+import visionIllustration from '../assets/our-vision-optimized.png'
 
 export default function MissionVision() {
   return (
@@ -28,7 +28,7 @@ export default function MissionVision() {
                 self and live a meaningful life.
               </p>
             </div>
-            <img className="mission-image" src={visionIllustration} alt="Illustration representing personal growth and self-discovery" />
+            <img className="mission-image" src={visionIllustration} alt="Illustration representing personal growth and self-discovery" width="640" height="516" loading="lazy" decoding="async" />
           </article>
         </div>
       </div>
