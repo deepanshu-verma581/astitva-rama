@@ -27,7 +27,6 @@ export default function Contact() {
     } else if (!Number.isInteger(Number(values.age)) || Number(values.age) < 1 || Number(values.age) > 120) {
       nextErrors.age = 'Enter an age between 1 and 120.'
     }
-    if (!values.message.trim()) nextErrors.message = 'Please enter a message.'
     setErrors(nextErrors)
     if (Object.keys(nextErrors).length > 0) return
 
@@ -129,7 +128,7 @@ export default function Contact() {
             </div>
             <label>
               Message
-              <textarea name="message" rows="5" required value={values.message} onChange={update} />
+              <textarea name="message" rows="5" value={values.message} onChange={update} />
               {errors.message && <small>{errors.message}</small>}
             </label>
             <button className="button button-primary" type="submit" disabled={submitting}>

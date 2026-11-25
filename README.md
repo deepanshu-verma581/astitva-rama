@@ -20,7 +20,7 @@ function doPost(e) {
   try {
     const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     const data = JSON.parse(e.postData.contents);
-    if (!data.name?.trim() || !data.email?.trim() || !data.phone?.trim() || !data.age || !data.message?.trim()) {
+    if (!data.name?.trim() || !data.email?.trim() || !data.phone?.trim() || !data.age) {
       return jsonResponse({ status: 'error', message: 'Required fields are missing.' });
     }
     const age = Number(data.age);
@@ -40,7 +40,7 @@ function doPost(e) {
       data.email,
       data.phone || '',
       age,
-      data.message,
+      data.message?.trim() || '',
     ]);
     return jsonResponse({ status: 'success' });
   } catch (error) {
@@ -64,14 +64,14 @@ function setup() {
 4. Run `setup` once with the Apps Script authorization prompt.
 5. Deploy with **Deploy → New deployment → Web app**.
 6. Set **Execute as** to **Me** and **Who has access** to **Anyone**.
-7. Copy the Web App URL into `.env.local`:
+7. Copy the Web App URL into `.env` (or `.env.local`):
 
 ```text
-VITE_GOOGLE_SCRIPT_URL=https://script.google.com/macros/s/DEPLOYMENT_ID/exec
+  VITE_GOOGLE_SCRIPT_URL=https://script.google.com/macros/s/DEPLOYMENT_ID/exec
 ```
 
 8. Restart `npm run dev`, submit the form, and verify that a new row is added.
 
-The React form uses `text/plain` POST data to avoid a Google Apps Script CORS preflight. The URL is public configuration only; never place a Google account password or private API key in the frontend.
+The React form uses `text/plain` POST data to avoid a Google Apps Script CORS preflight. Message is optional and is saved as a blank cell when omitted. The URL is public configuration only; never place a Google account password or private API key in the frontend.
 
 The contact form sends Date, Day, and Time in India Standard Time as private submission fields; they are saved to the sheet and are not shown on the page. If the Apps Script is already deployed, update its `doPost` code with the version above and deploy a new version. Add the `Date`, `Day`, and `Time` headers after `Timestamp` in the sheet so the columns match.
