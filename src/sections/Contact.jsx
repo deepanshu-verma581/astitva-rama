@@ -80,16 +80,16 @@ export default function Contact() {
             <h3>We are here to listen</h3>
             <p>Reach out with questions or to request a consultation.</p>
             <div className="contact-line">
-              <Phone /><div><span>Phone</span><strong>Phone number placeholder</strong></div>
+              <Phone /><div><span>Phone</span><strong>+91 9319894833</strong></div>
             </div>
             <div className="contact-line">
-              <Mail /><div><span>Email</span><strong>Email address placeholder</strong></div>
+              <Mail /><div><span>Email</span><strong>astitvacounsellingcentre@gmail.com</strong></div>
             </div>
             <div className="contact-line">
-              <MapPin /><div><span>Address</span><strong>Address placeholder</strong></div>
+              <MapPin /><div><span>Address</span><strong>Currently Virtual Session</strong></div>
             </div>
             <div className="contact-line">
-              <Clock /><div><span>Working Hours</span><strong>Working hours placeholder</strong></div>
+              <Clock /><div><span>Working Hours</span><strong>6-PM to 12-AM</strong></div>
             </div>
           </div>
           <form className="contact-form" onSubmit={submit} noValidate>

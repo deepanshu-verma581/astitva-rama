@@ -1,5 +1,5 @@
 import { navItems, serviceItems } from '../data/siteData'
-import astitvaLogo from '../assets/astitva.jpeg'
+import astitvaLogo from '../assets/logo.png'
 
 export default function Footer() {
   return (
@@ -22,9 +22,9 @@ export default function Footer() {
         </div>
         <div>
           <h3>Contact</h3>
-          <p>Phone number placeholder</p>
-          <p>Email address placeholder</p>
-          <p>Address placeholder</p>
+          <p>+91 9319894833</p>
+          <p>astitvacounsellingcentre@gmail.com</p>
+          <p></p>
           <div className="socials">
             <a href="#home" aria-label="Instagram">Ig</a>
             <a href="#home" aria-label="Facebook">Fb</a>

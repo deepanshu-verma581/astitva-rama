@@ -2,6 +2,7 @@ import Button from '../components/Button'
 import ImagePlaceholder from '../components/ImagePlaceholder'
 import SectionHeading from '../components/SectionHeading'
 import therapyRoom from '../assets/hero.png'
+import astitva from '../assets/astitva.jpeg'
 
 export default function Hero() {
   return (

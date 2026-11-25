@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import Button from './Button'
 import { navItems } from '../data/siteData'
-import astitvaLogo from '../assets/astitva.jpeg'
+import astitvaLogo from '../assets/logo.png'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
