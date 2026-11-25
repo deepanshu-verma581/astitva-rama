@@ -27,8 +27,15 @@ function doPost(e) {
     if (!Number.isInteger(age) || age < 1 || age > 120) {
       return jsonResponse({ status: 'error', message: 'Age must be a whole number from 1 to 120.' });
     }
+    const submittedAt = new Date();
+    const date = data.date || Utilities.formatDate(submittedAt, 'Asia/Kolkata', 'yyyy-MM-dd');
+    const day = data.day || Utilities.formatDate(submittedAt, 'Asia/Kolkata', 'EEEE');
+    const time = data.time || Utilities.formatDate(submittedAt, 'Asia/Kolkata', 'hh:mm:ss a');
     sheet.appendRow([
-      data.timestamp || new Date(),
+      data.timestamp || submittedAt.toISOString(),
+      date,
+      day,
+      time,
       data.name,
       data.email,
       data.phone || '',
@@ -50,7 +57,7 @@ function jsonResponse(payload) {
 function setup() {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
   sheet.clear();
-  sheet.appendRow(['Timestamp', 'Full Name', 'Email', 'Phone', 'Age', 'Message']);
+  sheet.appendRow(['Timestamp', 'Date', 'Day', 'Time', 'Full Name', 'Email', 'Phone', 'Age', 'Message']);
 }
 ```
 
@@ -66,3 +73,5 @@ VITE_GOOGLE_SCRIPT_URL=https://script.google.com/macros/s/DEPLOYMENT_ID/exec
 8. Restart `npm run dev`, submit the form, and verify that a new row is added.
 
 The React form uses `text/plain` POST data to avoid a Google Apps Script CORS preflight. The URL is public configuration only; never place a Google account password or private API key in the frontend.
+
+The contact form sends Date, Day, and Time in India Standard Time as private submission fields; they are saved to the sheet and are not shown on the page. If the Apps Script is already deployed, update its `doPost` code with the version above and deploy a new version. Add the `Date`, `Day`, and `Time` headers after `Timestamp` in the sheet so the columns match.

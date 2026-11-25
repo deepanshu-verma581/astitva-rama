@@ -1,19 +1,13 @@
-import ImagePlaceholder from './ImagePlaceholder'
-
-export default function TestimonialCard() {
+export default function TestimonialCard({ quote, image, name, detail }) {
   return (
     <article className="testimonial-card">
-      <span className="quote">“</span>
-      <p>
-        <em>
-          Sample placeholder testimonial text. Replace with an appropriately consented client testimonial before publishing.
-        </em>
-      </p>
+      <span className="quote" aria-hidden="true">“</span>
+      <p>{quote}</p>
       <div className="testimonial-person">
-        <ImagePlaceholder className="avatar" />
+        <img className="avatar" src={image} alt="Illustrative sample portrait" />
         <div>
-          <strong>Sample Name</strong>
-          <span>Sample category</span>
+          <strong>{name}</strong>
+          <span>{detail}</span>
         </div>
       </div>
     </article>

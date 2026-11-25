@@ -43,10 +43,20 @@ export default function Contact() {
     setSubmitting(true)
     setStatus({ type: '', message: '' })
     try {
+      const submittedAt = new Date()
+      const date = new Intl.DateTimeFormat('en-CA', {
+        timeZone: 'Asia/Kolkata', year: 'numeric', month: '2-digit', day: '2-digit',
+      }).format(submittedAt)
+      const day = new Intl.DateTimeFormat('en-IN', {
+        timeZone: 'Asia/Kolkata', weekday: 'long',
+      }).format(submittedAt)
+      const time = new Intl.DateTimeFormat('en-IN', {
+        timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true,
+      }).format(submittedAt)
       const response = await fetch(scriptUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify({ ...values, timestamp: new Date().toISOString() }),
+        body: JSON.stringify({ ...values, timestamp: submittedAt.toISOString(), date, day, time }),
       })
       const result = await response.json()
       if (!response.ok || result.status !== 'success') {

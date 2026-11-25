@@ -1,5 +1,5 @@
 :root {
-  font-family: Arial, sans-serif;
+  font-family: 'DM Sans', sans-serif;
   color: #3d382c;
   background: #f5f0e5;
   font-synthesis: none;
@@ -31,7 +31,8 @@ body,
 
 html { scroll-behavior: smooth; scroll-padding-top: 82px; }
 body { min-width: 320px; overflow-x: hidden; background: var(--bg); color: var(--text); font-size: 18px; line-height: 1.7; }
-body, button, input, textarea { font-family: Arial, sans-serif; }
-h1, h2, h3, .brand { font-family: Georgia, 'Times New Roman', serif; }
+body, button, input, textarea { font-family: 'DM Sans', sans-serif; }
+h1, h2, h3, h4, .brand, .mini-brand { font-family: 'Cormorant Garamond', Georgia, serif; }
+h1, h2, h3, h4 { font-weight: 600; }
 a { color: inherit; }
 button, input, textarea { font-size: inherit; }

@@ -1,5 +1,4 @@
 import Button from '../components/Button'
-import ImagePlaceholder from '../components/ImagePlaceholder'
 import SectionHeading from '../components/SectionHeading'
 import therapyRoom from '../assets/hero.png'
 import astitva from '../assets/astitva.jpeg'
@@ -25,7 +24,7 @@ export default function Hero() {
 
       <section className="intro-grid section-pad">
         <div className="intro-card">
-          <ImagePlaceholder className="intro-image" aspectRatio="16 / 9" />
+          <img className="intro-image" src={astitva} alt="Astitva Counselling & Wellness Centre logo" />
           <div>
             <span className="mini-brand">Astitva</span>
             <p>
